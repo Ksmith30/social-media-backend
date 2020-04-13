@@ -7,4 +7,5 @@ cache:
 test_async:
   script:
     - npm ci
-    - npm start
+    - npm run build
+    - npm run test
