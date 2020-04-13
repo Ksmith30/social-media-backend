@@ -7,4 +7,4 @@ cache:
 test_async:
   script:
     - npm ci
-    - node ./specs/start.js ./specs/async.spec.js
+    - npm start
