@@ -6,13 +6,17 @@
   "scripts": {
     "start": "npm run build && node build/server",
     "build": "tsc",
-    "test": "echo hello"
+    "test": "echo hello",
+    "heroku:login": "heroku container:login",
+    "heroku:publish": "heroku container:push --recursive",
+    "heroku:deploy": "heroku container:release"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "heroku": "^7.39.3",
     "node": "^13.12.0"
   },
   "devDependencies": {

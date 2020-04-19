@@ -9,3 +9,4 @@ test_async:
     - npm ci
     - npm run build
     - npm run test
+    - dpl --provider=heroku --app=kyle-social-media --api-key=$HEROKU_API_KEY
