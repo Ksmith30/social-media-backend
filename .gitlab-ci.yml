@@ -5,11 +5,11 @@ cache:
     - node_modules/
 
 stages: 
-  - .pre
+  - pre
   - staging
   - production
 
-.pre:
+pre:
   - npm ci
   - npm run build
   - npm run test
