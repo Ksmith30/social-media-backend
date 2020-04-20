@@ -19,11 +19,11 @@ deploy-stage:
   image: ruby:latest
   script:
     - gem install dpl
-    - dpl --provider=heroku --app=stg-kyle-social-media --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=stg-kyle-social-media --api-key=$HEROKU_API_KEY --skip-cleanup
   only:
     - master
     
 deploy-prod:
   stage: production
   script:
-    - dpl --provider=heroku --app=kyle-social-media --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=kyle-social-media --api-key=$HEROKU_API_KEY --skip-cleanup
