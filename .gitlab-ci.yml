@@ -4,9 +4,22 @@ cache:
   paths:
     - node_modules/
 
-test_async:
+stages: 
+  - staging
+  - production
+
+deploy-stage:
+  stage: staging
   script:
     - npm ci
     - npm run build
     - npm run test
+    - gem install dpl
+    - dpl --provider=heroku --app=stg-kyle-social-media --api-key=$HEROKU_API_KEY
+  only:
+    - master
+    
+deploy-prod:
+  stage: production
+  script:
     - dpl --provider=heroku --app=kyle-social-media --api-key=$HEROKU_API_KEY
