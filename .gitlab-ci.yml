@@ -9,7 +9,7 @@ stages:
   - staging
   - production
 
-bulid:
+build:
   stage: .pre
   script:
     - npm ci
