@@ -5,15 +5,19 @@ cache:
     - node_modules/
 
 stages: 
+  - .pre
   - staging
   - production
 
+.pre:
+  - npm ci
+  - npm run build
+  - npm run test
+
 deploy-stage:
   stage: staging
+  image: ruby:latest
   script:
-    - npm ci
-    - npm run build
-    - npm run test
     - gem install dpl
     - dpl --provider=heroku --app=stg-kyle-social-media --api-key=$HEROKU_API_KEY
   only:
