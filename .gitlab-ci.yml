@@ -23,7 +23,7 @@ deploy-stage:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=stg-kyle-social-media --api-key=$HEROKU_API_KEY --skip-cleanup
+    - dpl --provider=heroku --app=kyle-social-media-stg --api-key=$HEROKU_API_KEY --skip-cleanup
   only:
     - master
     
