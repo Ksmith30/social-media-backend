@@ -9,21 +9,26 @@ stages:
   - staging
   - production
 
-.pre:
-  - npm ci
-  - npm run build
-  - npm run test
-
+build:
+  stage: .pre
+  script:
+    - npm ci
+    - npm run build
+    - npm run test
+  
 deploy-stage:
   stage: staging
   image: ruby:latest
   script:
     - gem install dpl
-    - dpl --provider=heroku --app=stg-kyle-social-media --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=stg-kyle-social-media --api-key=$HEROKU_API_KEY --skip-cleanup
   only:
     - master
     
 deploy-prod:
   stage: production
   script:
-    - dpl --provider=heroku --app=kyle-social-media --api-key=$HEROKU_API_KEY
+    - npm ci
+    - npm run build
+    - npm run test
+    - dpl --provider=heroku --app=kyle-social-media --api-key=$HEROKU_API_KEY --skip-cleanup
