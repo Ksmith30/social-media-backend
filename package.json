@@ -6,10 +6,7 @@
   "scripts": {
     "start": "npm run build && node build/server",
     "build": "tsc",
-    "test": "echo hello",
-    "heroku:login": "heroku container:login",
-    "heroku:publish": "heroku container:push --recursive",
-    "heroku:deploy": "heroku container:release"
+    "test": "echo hello"
   },
   "author": "",
   "license": "ISC",
