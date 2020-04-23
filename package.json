@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "start": "npm run build && node build/server",
+    "dev": "npm run build && node build/server",
+    "start": "node build/server",
     "build": "tsc",
     "test": "echo hello"
   },
