@@ -5,7 +5,7 @@
   "main": "server.ts",
   "scripts": {
     "dev": "nodemon",
-    "start": "ts-node start.ts",
+    "start": "ts-node server.ts",
     "build": "tsc",
     "test": "echo hello"
   },
